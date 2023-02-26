@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Menu, Tag } from '@/layouts'
-import { Encrypt } from '@/utils'
+import { Decrypt } from '@/utils'
 import { useState } from 'react';
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
 
     const handleSubmit = async () => {
         
-        setResult(Encrypt(value, key))
+        setResult(Decrypt(value, key))
     }
 
     const handleReset = async () => {
@@ -36,16 +36,14 @@ export default function Home() {
                 {/* end menu */}
 
                 <main className="lg:ml-60 pt-11 h-screen overflow-auto bg-yellow-200">
-
                     <div className="px-6 py-8">
-                            
-                        {/* tag */}
+                        
                         <Tag />
 
                         <div className="max-w-4xl mx-auto mt-3">
                             <div className="bg-white rounded-3xl p-8 mb-5">
 
-                                <h1 className="text-3xl font-bold mb-10">Encrypt Data</h1>
+                                <h1 className="text-3xl font-bold mb-10">Decrypt Data</h1>
 
                                 <hr className="my-10" />
 
@@ -53,7 +51,7 @@ export default function Home() {
 
                                     <div className="col-span-1">
                                         <div className="p-4 bg-purple-100 rounded-xl">
-                                            <div className="font-bold text-xl text-gray-800 leading-none">Value</div>
+                                            <div className="font-bold text-xl text-gray-800 leading-none">Encrypted Value</div>
                                             <div className="mt-5">
                                                 <textarea value={value} onChange={e => { setValue(e.target.value); }}  className="p-3 w-full rounded-lg shadow"></textarea>
                                             </div>
@@ -74,11 +72,12 @@ export default function Home() {
                                             Reset
                                         </button>
                                         <button onClick={handleSubmit} type="button" className="bg-blue-400 inline-flex items-center justify-center py-2 px-3 rounded-xl text-gray-800 hover:text-white text-sm font-semibold transition">
-                                            Start Encrypt
+                                            Start Decrypt
                                         </button>
                                     </div>
 
                                 </div>
+
 
                                 <hr className="my-10" />
 
